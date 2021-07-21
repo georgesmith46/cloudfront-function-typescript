@@ -1,0 +1,23 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Description": "Template to deploy a CloudFront function written in TypeScript",
+  "Parameters": {
+    "FunctionCode": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "CloudFrontFunction": {
+      "Type": "AWS::CloudFront::Function",
+      "Properties": {
+        "AutoPublish": true,
+        "FunctionCode": { "Ref": "FunctionCode" },
+        "FunctionConfig": {
+          "Comment": "CloudFront function written in TypeScript",
+          "Runtime": "cloudfront-js-1.0"
+        },
+        "Name": "cloudfront-function-typescript"
+      }
+    }
+  }
+}
